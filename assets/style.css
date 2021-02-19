@@ -26,6 +26,9 @@ html, body {
 .bg1 {
     background-color: red;
 }
+.bg11 {
+    background-color: rgba(255, 0, 0, 0.603);
+}
 
 .bg8 {
     background-color: #fff6 !important;
@@ -193,13 +196,28 @@ li {
 
 /* ------------------------------------  form ------------------------------------ */
 
-input {
+input[type="text"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="phone"],
+input[type="email"] {
     border: none !important;
     border-radius: 0 !important;
     border-bottom: 1px solid rgba(255, 0, 0, 0.671) !important;
     background-color: #fff0 !important;
     color: #101010 !important;
 }
+
+input[type="search"] {
+    background-color: rgba(255, 255, 255, 0.493) !important;
+    color: black !important;
+}
+input[type="search"]:focus {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    color: black !important;
+}
+
+
 ::placeholder {
     color: #101010 !important;
 }

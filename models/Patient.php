@@ -252,4 +252,35 @@ class Patient {
         }
     }
 
+    public static function get_patient_search($search) {
+
+        try{  //On essaie de se connecter   
+            
+            $pdo = Database::connect();
+
+            $sql = "SELECT * FROM 
+                        `patients`
+                    WHERE 
+                        (`lastname` LIKE :ln OR `firstname` LIKE :fn OR `mail` LIKE :ml) ;";
+
+            // préparation de la requête
+            $sth = $pdo->prepare($sql);
+
+            // association des marqueurs nominatif via méthode bindvalue
+            $sth->bindValue(':ln', '%'.$search.'%', PDO::PARAM_STR);
+            $sth->bindValue(':fn', '%'.$search.'%', PDO::PARAM_STR);
+            $sth->bindValue(':ml', '%'.$search.'%', PDO::PARAM_STR);
+
+            // traitement et envoi d ela réponse
+            $sth->execute();
+
+            return $sth->fetchAll();
+
+        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
+            
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
 }

@@ -32,17 +32,29 @@
 
                 <nav id="navBar" class="navbar navbar-expand-md navbar-dark justify-content-md-between">
 
-                    <a class="navbar-brand" href="index.php"><img id="hospitalLogo" src="assets/img/logoHospital.png" alt="icon retour accueil"></a>
+                    <a class="navbar-brand col" href="index.php">
+                        <img id="hospitalLogo" src="assets/img/logoHospital.png" alt="icon retour accueil">
+                    </a>
 
                     <!-- toggler BTN -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
+                    <?php if (!empty($ctrl) && $ctrl === 2) : ?>
+                    <form role="search" action="" method="GET" class="form input-group col-3">
+                        <input id="search" type="search" name="search" class="form-control bdL5" placeholder="recherche patient..">
+                        <input type="hidden" name="ctrl" value="2">
+                        <button type="submit" class="input-group-text  bg11 bdR5 txt1">
+                            <img src="assets/icon/loupe.svg" alt="icon search sur navbar">
+                        </button>
+                    </form>
+                    <?php endif ?>
+
                     <!-- NavItem -->
-                    <div id="navbarContent" class="collapse navbar-collapse">
+                    <div id="navbarContent" class="col-8 collapse navbar-collapse justify-content-end">
                         
-                        <ul class="navbar-nav justify-content-around">
+                        <ul class="navbar-nav">
 
                             <li class="nav-item"><a class="nav-link mx-2" href="index.php?ctrl=1">
                                 Ajouter patient
