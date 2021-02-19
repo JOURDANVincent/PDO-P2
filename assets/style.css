@@ -1,0 +1,265 @@
+html, body {
+    position: relative;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/* ------------------------------------  thème ------------------------------------ */
+
+.txt1 {
+    color: red !important;
+}
+
+.bdc1 {
+    border: 1px solid red !important;
+    border-radius: 5px;
+}
+
+.bdcup1 {
+    border-top: 1px solid red !important;
+    box-shadow: 2px 2px 5px 2px rgba(255, 0, 0, 0.301);
+}
+
+.bg1 {
+    background-color: red;
+}
+
+.bg8 {
+    background-color: #fff6 !important;
+}
+
+.bgW {
+    background-color: white !important;
+}
+
+.sha1 {
+    box-shadow: 2px 2px 5px 2px rgba(255, 0, 0, 0.301);
+}
+
+.bg2 {
+    background-color: #101010;
+}
+
+.bl8 {
+    backdrop-filter: blur(8px);
+}
+
+
+/* ------------------------------------  background ------------------------------------ */
+
+#wall {
+    position: fixed;
+    z-index: 0;
+    top: 0 !important;
+    left: 0;
+    filter: grayscale(80%);
+}
+
+
+/* ------------------------------------  message ------------------------------------ */
+
+#homeMessage {
+    z-index: 1;
+    position: fixed;
+    left: 0 !important;
+    bottom: 0 !important;
+}
+
+
+/* ------------------------------------  bdd success ------------------------------------ */
+
+.alert-success {
+    position: absolute;
+    z-index: 99999 !important;
+    top: 100px !important;
+    /* height: 100px; */
+    background-color: rgba(0, 128, 0, 0.6) !important;
+    color: white;
+    backdrop-filter: blur(8px) !important;
+}
+
+/* ------------------------------------  bdd Alert ------------------------------------ */
+
+.alert-danger {
+    position: absolute;
+    z-index: 99999 !important;
+    top: 100px !important;
+    /* height: 100px; */
+    background-color: rgba(255, 0, 0, 0.6) !important;
+    color: white;
+    backdrop-filter: blur(8px) !important;
+}
+
+
+/* ------------------------------------  navbar ------------------------------------ */
+
+#navBar {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    top: 0;
+    /* background-color: #9995 !important; */
+    backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid red !important;
+    box-shadow: 2px 2px 5px 2px rgba(255, 0, 0, 0.301);
+}
+
+.dropdown-menu {
+    background-color: #fffa !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.dropdown-item {
+    color: #202020 !important;
+}
+
+.nav-link {
+    color: red !important;
+}
+
+.nav-item {
+    font-size: 22px !important;
+}
+
+#hospitalLogo {
+    max-height: 70px !important;
+}
+
+#navbarContent img {
+    max-height: 50px !important;
+} 
+
+
+a, li {
+    text-decoration: none !important;
+    color: #444 !important ;
+}
+
+a:hover {
+    border-radius: 5px !important;
+    background-color: #40404040 !important;
+    color: red !important;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* ------------------------------------  list-group ------------------------------------ */
+
+.list-group-item {
+    background-color: #fff6 !important;
+}
+
+
+/* ------------------------------------  table ------------------------------------ */
+
+.table {
+    background-color: transparent !important;
+    color: black !important
+}
+
+
+/*--------------------- scroll bar ------------------------ */
+
+::-webkit-scrollbar-track {
+    background-color: #20202030;
+}
+::-webkit-scrollbar {
+    height: 6px !important;
+    background-color: #20202020;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #808080;
+    border: 1px solid rgba(255, 0, 0, 0.466) !important;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 0, 0, 0.507) !important;
+    border: 1px solid red !important;
+}
+
+
+/* ------------------------------------  mainContent ------------------------------------ */
+
+#mainContent {
+    margin-top: 100px !important;
+}
+
+
+/* ------------------------------------  form ------------------------------------ */
+
+input {
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.671) !important;
+    background-color: #fff0 !important;
+    color: #101010 !important;
+}
+::placeholder {
+    color: #101010 !important;
+}
+input:focus {
+    background-color: #fff0 !important;
+}
+
+.btn.bg1 {
+    border-radius: 5px !important;
+    background-color: red !important;
+    color: white !important;
+}
+
+.btn.bg1:hover {
+    background-color: transparent !important;
+    color: red !important;
+}
+
+.btn.bgW {
+    background-color: transparent !important;
+    border-radius: 5px !important;
+    border: 1px solid red !important;
+    color: red !important;
+}
+
+.btn.bgW:hover {
+    background-color: white !important;
+    color: red !important;
+    border: 1px solid red !important;
+}
+
+.bgError {
+    background-color: rgba(255, 0, 0, 0.25) !important;
+}
+
+#patientSelect {
+    max-height: 300px !important;
+    overflow-y: scroll !important;
+}
+#newPatientSelect {
+    max-height: 200px !important;
+    overflow-y: scroll !important;
+}
+
+#patientSelect .form-check-label:hover,
+#newPatientSelect .form-check-label:hover {
+    background-color: rgba(255, 0, 0, 0.25) !important;
+    border-radius: 3px !important;
+    padding: 5px;
+}
+
+#patientSelect input[type="radio"],
+#newPatientSelect input[type="radio"] {
+    display: none !important;
+    border-radius: 3px !important;
+}
+
+#patientSelect input[type="radio"]:checked + label,
+#newPatientSelect input[type="radio"]:checked + label{
+    background-color: rgba(255, 0, 0, 0.5) !important;
+    padding: 5px !important;
+    border-radius: 3px !important;
+}
