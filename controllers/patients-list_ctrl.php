@@ -65,8 +65,7 @@
         if (empty($patient_search) || !$patient_search) {
 
             // renvoie sur liste avec message erreur
-            $alert_type = 'danger';
-            $alert_msg = 'Aucun patient ne correspond..';
+            header('location: index.php?ctrl=2&alert=19');
 
         } else {
 

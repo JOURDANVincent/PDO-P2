@@ -18,8 +18,8 @@
         14 => ['type' => 'success', 'msg' => 'Confirmation de suppression de rendez-vous !'],
         15 => ['type' => 'danger', 'msg' => 'Erreur suppression du patient..'],
         16 => ['type' => 'success', 'msg' => 'Confirmation de suppression du patient !'],
-        17 => ['type' => 'error', 'msg' => 'Aucun rendez-vous pour ce patient !'],
-        18 => ['type' => 'error', 'msg' => 'Aucun patient ne correspond..']
+        17 => ['type' => 'danger', 'msg' => 'Aucun rendez-vous pour ce patient !'],
+        18 => ['type' => 'danger', 'msg' => 'Aucun patient ne correspond à la recherche..']
     ];
     
     $alert = intval(trim(filter_input(INPUT_GET, 'alert', FILTER_SANITIZE_NUMBER_INT)));

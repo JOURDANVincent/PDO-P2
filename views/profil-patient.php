@@ -29,7 +29,7 @@
 
                 <div class="col-6">
                     <h5 class="card-title">Liste des rendez-vous</h5>
-                    <?php if (!$patient_appointment) : ?>
+                    <?php if (empty($patient_appointment)) : ?>
                         <div>Aucun rendez-vous..</div>
                     <?php else : foreach($patient_appointment as $appointment) : ?>
                         <div><?= 'le '.date('d-m-Y', strtotime($appointment->dateHour)).' à '. date('d-m-Y', strtotime($appointment->dateHour)) ?></div>

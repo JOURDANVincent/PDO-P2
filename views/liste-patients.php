@@ -31,7 +31,10 @@
             </thead>
 
             <tbody>
-                <?php foreach($patients_list as $patient) :
+                <?php 
+                    $a = !empty($sql_offset) ? ($sql_offset + 1) : 1 ; 
+                
+                    foreach($patients_list as $patient) :
                         
                     // on réécrit la date (jj-mm-aaaa)
                     $patient->birthdate = date('d/m/Y', strtotime($patient->birthdate)); ?>
@@ -40,7 +43,7 @@
                         <td onclick="location.href='index.php?ctrl=3&id=<?= $patient->id ?>'">
                             <img style="max-width:20px;" src="assets/icon/setPatientProfil.svg" alt="icon modifier">
                         </td>
-                        <td class=""><?= $patient->id ?></td>
+                        <td class=""><?= $a ?></td>
                         <td><?= $patient->lastname ?></td>
                         <td><?= $patient->firstname ?></td>
                         <td><?= $patient->birthdate ?></td>
@@ -51,7 +54,7 @@
                         </td>
                     </tr>
 
-                <?php endforeach ?>
+                <?php $a++; endforeach ?>
             </tbody>
 
         </table>

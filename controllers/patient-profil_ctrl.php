@@ -22,8 +22,7 @@
     // bdd : récupère les rendez-vous du patient
     $patient_appointment = Appointment::get_patient_appointment($id);
 
-
-    if (!$patient_appointment) {
+    if ($patient_appointment === false) {
 
         // on renvoi sur liste des patients et affichage error !
         header('location: index.php?ctrl=2&alert=13');

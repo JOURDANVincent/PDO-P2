@@ -39,7 +39,7 @@
                     
                     <tr>
                         <td onclick="location.href='index.php?ctrl=7&idP=<?= $appointment->idPatients ?>&idA=<?= $appointment->idAppointments ?>'">
-                            <img src="assets/icon/set.svg" style="max-height:20px;" alt="icone modifier">
+                            <img src="assets/icon/setPatientProfil.svg" style="max-height:20px;" alt="icone modifier">
                         </td>
                         <td><?= $a ?></td>
                         <td><?= $date ?></td>
