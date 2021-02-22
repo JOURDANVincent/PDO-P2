@@ -7,7 +7,7 @@
     // ---------------------- suppression du patient ----------------------------//
 
     // traitement du rendez-vous à supprimer
-    $delA = intval(trim(filter_input(INPUT_GET, 'delA_idA', FILTER_SANITIZE_NUMBER_INT)));
+    $delA = intval(trim(filter_input(INPUT_GET, 'del_idA', FILTER_SANITIZE_NUMBER_INT)));
 
     if ($delA !== 0) {
 

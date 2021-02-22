@@ -14,7 +14,7 @@
         <div class="card pt-4 bl8 bdc1 sha1 bg8" >
 
             <div class="text-center">
-                <img class="card-img-top img-fluid" style="max-width:150px;" src="assets/icon/medical-record.svg" alt="Card image cap">
+                <img class="card-img-top img-fluid" style="max-width:150px;" src="assets/icon/medical-records.svg" alt="logo raport">
             </div>
 
             <div class="card-body row mt-3">
