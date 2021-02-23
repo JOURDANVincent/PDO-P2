@@ -60,33 +60,20 @@
     if (!empty($search)) {
 
         // requete recherche
-        $total_patients = Patient::get_total_patients_search($search)->total;
+        $patient_search = Patient::get_patient_search($search);
 
-        if (empty($total_patients)) {
+        if (empty($patient_search) || !$patient_search) {
 
             // renvoie sur liste avec message erreur
             header('location: index.php?ctrl=2&alert=19');
 
         } else {
 
-            // traitement de limit pour gérer l'affichage
-            $sql_limit = intval(trim(filter_input(INPUT_GET, 'limit', FILTER_SANITIZE_NUMBER_INT)));
-            if ($sql_limit <= 10) {
-                $sql_limit = 10;
-            } else {
-                $sql_limit = 10;
-            }
+            // on envoie résultat recherche dans $patient_list
+            $patients_list = $patient_search;
 
-            // traitement de offset pour gérer l'affichage
-            $sql_offset = intval(trim(filter_input(INPUT_GET, 'offset', FILTER_SANITIZE_NUMBER_INT)));
-            if($sql_offset <= 0) {
-                $sql_offset = 0;
-            } else if ($sql_offset >= $total_patients) {
-                $sql_offset = $sql_offset - $sql_limit;
-            } 
-
-            // requete recherche
-            $patients_list = Patient::get_patient_search($search, $sql_offset, $sql_limit);
+            // on récupère le nombre patient de la recherche
+            $total_patients = count($patients_list);
         }
 
     } 
@@ -94,39 +81,37 @@
     // ---------------------- fin recherche d'un patient ----------------------------//
 
 
-    if (empty($search)) {  // si pas de recherche de patient //
 
-        // récupère le nombre total de patient
-        $total_patients = Patient::get_total_patients();
+    // récupère le nombre total de patient
+    $total_patients = Patient::get_total_patients();
+    
 
-        // traitement de limit pour gérer l'affichage
-        $sql_limit = intval(trim(filter_input(INPUT_GET, 'limit', FILTER_SANITIZE_NUMBER_INT)));
-        if ($sql_limit <= 10) {
-            $sql_limit = 10;
-        } else {
-            $sql_limit = 10;
-        }
-
-        // traitement de offset pour gérer l'affichage
-        $sql_offset = intval(trim(filter_input(INPUT_GET, 'offset', FILTER_SANITIZE_NUMBER_INT)));
-        if($sql_offset <= 0) {
-            $sql_offset = 0;
-        } else if ($sql_offset >= $total_patients) {
-            $sql_offset = $sql_offset - $sql_limit;
-        } 
-
-
-        // bbd: récupère liste de spatients
-        $patients_list = Patient::get_patients_list($sql_offset, $sql_limit);
-        
-        if (!$patients_list || !is_array($patients_list)) {
-
-            // si erreur on renvoi sur page d'accueil avec message erreur
-            header('location: index.php?&alert=4');
-        }   
+    // traitement de limit pour gérer l'affichage
+    $sql_limit = intval(trim(filter_input(INPUT_GET, 'limit', FILTER_SANITIZE_NUMBER_INT)));
+    if ($sql_limit <= 10) {
+        $sql_limit = 10;
+    } else {
+        $sql_limit = 10;
     }
 
+    // traitement de offset pour gérer l'affichage
+    $sql_offset = intval(trim(filter_input(INPUT_GET, 'offset', FILTER_SANITIZE_NUMBER_INT)));
+    if($sql_offset <= 0) {
+        $sql_offset = 0;
+    } else if ($sql_offset >= $total_patients) {
+        $sql_offset = $sql_offset - $sql_limit;
+    } 
+
+
+    // bbd: récupère liste de spatients
+    $patients_list = Patient::get_patients_list($sql_offset, $sql_limit);
     
+    if (!$patients_list || !is_array($patients_list)) {
+
+        // si erreur on renvoi sur page d'accueil avec message erreur
+        header('location: index.php?&alert=4');
+    }    
+
 
     // -----------------------------------------------------------
     // affichage de la vue liste des patients

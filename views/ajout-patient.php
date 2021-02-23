@@ -65,7 +65,7 @@
                 <div class="txt1 mb-2 mt-0 pl-3"><?= $form_error['phone'] ?? '' ;?></div>
 
                 <input 
-                    class="form-control <?= (!empty($form_error['mail']) || !empty($bdd_alert)) ? 'bgError' : '' ;?> mb-2" 
+                    class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ;?> mb-2" 
                     type="email" name="mail" 
                     placeholder="email" 
                     value="<?= $_POST['mail'] ?? '' ;?>"

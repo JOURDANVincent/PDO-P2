@@ -204,7 +204,7 @@ input[type="email"] {
     border: none !important;
     border-radius: 0 !important;
     border-bottom: 1px solid rgba(255, 0, 0, 0.671) !important;
-    background-color: #fff0 !important;
+    background-color: #fff0 ;
     color: #101010 !important;
 }
 
@@ -250,9 +250,7 @@ input:focus {
     border: 1px solid red !important;
 }
 
-.bgError {
-    background-color: rgba(255, 0, 0, 0.25) !important;
-}
+
 
 #patientSelect {
     max-height: 300px !important;
@@ -281,4 +279,8 @@ input:focus {
     background-color: rgba(255, 0, 0, 0.5) !important;
     padding: 5px !important;
     border-radius: 3px !important;
+}
+
+.bgError {
+    background-color: rgba(255, 0, 0, 0.25) !important;
 }

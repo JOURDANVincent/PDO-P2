@@ -25,8 +25,16 @@
 
                     <?php foreach($patients_list as $patient) : ?>
                         <div class="d-flex">
-                            <input required class="form-check-input" type="radio" name="idPatients" value="<?= $patient->id ?>" id="id<?= $patient->id ?>">
-                            <label class="form-check-label" for="id<?= $patient->id ?>">
+                            <input 
+                                class="form-check-input" 
+                                type="radio" 
+                                id="id<?= $patient->id ?>"
+                                name="idPatients" 
+                                value="<?= $patient->id ?>"
+                                required>
+                            <label 
+                                class="form-check-label" 
+                                for="id<?= $patient->id ?>">
                                 <?= $patient->lastname.' '.$patient->firstname.' | '.$patient->mail ?>
                             </label>
                         </div>
@@ -36,7 +44,7 @@
                     
                 <label class="txt1">Sélection date et heure du rendez-vous</label>
                 <input 
-                    class="form-control <?= (!empty($form_error['dateHour'])) ? 'bgError' : '' ;?> mb-2" 
+                    class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ?> mb-2" 
                     type="datetime-local" 
                     min="<?= $actual_date ?>" 
                     max=""

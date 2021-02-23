@@ -2,6 +2,8 @@
 
 class Database {
 
+    public static $pdo = null;
+
     public static function connect() {
 
         $server_name = 'localhost';
@@ -10,16 +12,18 @@ class Database {
         $server_user = 'hospitale2n';
         $server_password = 'dl6X1gnJpveIGaSh';
 
-        $pdo = new PDO(
-            $dsn, $server_user, $server_password,
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]
-        );
+        if (is_null(self::$pdo)) {
 
-        // message connexion OK !!
-        //echo 'Connexion BDD OK !!';
+            self::$pdo = new PDO(
+                $dsn, $server_user, $server_password,
+                [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]
+            );
 
-        return $pdo;
+            var_dump(self::$pdo);
+        }
+        
+        return self::$pdo;
     }
 
 }

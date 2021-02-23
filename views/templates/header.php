@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CDN MDB / BOOTSTRAP / SLICK -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap" rel="stylesheet">
     
     <!-- Police général -->
@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- Mes feuiiles de style -->
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css">
 
     <!-- Titre de la page actuelle -->
     <title><?= (!empty($ctrl)) ? $title_page[$ctrl] : 'Accueil' ?></title>
@@ -33,7 +33,7 @@
                 <nav id="navBar" class="navbar navbar-expand-md navbar-dark justify-content-md-between">
 
                     <a class="navbar-brand col" href="index.php">
-                        <img id="hospitalLogo" src="assets/img/logoHospital.png" alt="icon retour accueil">
+                        <img id="hospitalLogo" src="/assets/img/logoHospital.png" alt="icon retour accueil">
                     </a>
 
                     <!-- toggler BTN -->
@@ -46,7 +46,7 @@
                         <input id="search" type="search" name="search" class="form-control bdL5" placeholder="recherche patient..">
                         <input type="hidden" name="ctrl" value="2">
                         <button type="submit" class="input-group-text  bg11 bdR5 txt1">
-                            <img src="assets/icon/loupe.svg" alt="icon search sur navbar">
+                            <img src="/assets/icon/loupe.svg" alt="icon search sur navbar">
                         </button>
                     </form>
                     <?php endif ?>
@@ -60,11 +60,13 @@
                                 Ajouter patient
                             </a></li>
                             <li class="nav-item"><a class="nav-link mx-2" href="index.php?ctrl=2">
-                                <img src="assets/icon/" alt=""> Liste des patients</a></li>
+                                <img src="/assets/icon/" alt=""> Liste des patients</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" href="index.php?ctrl=5">
-                                <img src="assets/icon" alt=""> Ajouter un rendez-vous</a></li>
+                                <img src="/assets/icon" alt=""> Ajouter un rendez-vous</a></li>
                             <li class="nav-item"><a class="nav-link mx-2" href="index.php?ctrl=6">
-                                <img src="assets/icon" alt=""> Liste des rendez-vous</a></li>
+                                <img src="/assets/icon" alt=""> Liste des rendez-vous</a></li>
+                            <li class="nav-item"><a class="nav-link mx-2" href="index.php?ctrl=9">
+                                <img src="/assets/icon" alt=""> Ajouter patient et rendez-vous</a></li>
 
                         </ul>
                     </div>

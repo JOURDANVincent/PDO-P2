@@ -76,8 +76,14 @@ class Patient {
                 $sth->bindValue(':phone', $this->_phone, PDO::PARAM_STR);
                 $sth->bindValue(':mail', $this->_mail, PDO::PARAM_STR);
 
+                // éxecute requête
+                $result = $sth->execute();
+
+                // récupère dernier id
+                
+
                 // envoi et retourne la requête préparée
-                return $sth->execute();
+                return $result;
 
             } else {
 
@@ -89,6 +95,43 @@ class Patient {
             return false;
         }
 
+    }
+
+    public static function add_patient_and_appointment($patient, $appointment) {
+
+        try{  //On essaie de se connecter
+
+            $pdo = Database::connect();
+
+            // debut de transaction
+            $pdo->beginTransaction();
+
+            //ajout patient
+            $patient->add_new_patient();
+
+            // on récupère le dernier id
+            $last = Patient::get_last_id();
+            //$last_id = $pdo->lastInsertId();
+
+            // on réécrit l'id dans l'objet $appointment
+            $appointment->set_id($last->id);
+
+            //var_dump($appointment);die;
+
+            // ajout rendez-vous
+            $appointment->add_new_appointment();
+
+            // fin de transaction
+            $pdo->commit();
+
+            // envoi liste des patients
+            return true;
+            
+        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
+            
+            $pdo->rollBack();
+            return $e->getCode();
+        }
     }
 
     public static function get_last_id() {
@@ -252,14 +295,15 @@ class Patient {
         }
     }
 
-    public static function get_patient_search($search) {
+    public static function get_total_patients_search($search) {
 
         try{  //On essaie de se connecter   
             
             $pdo = Database::connect();
 
-            $sql = "SELECT * FROM 
-                        `patients`
+            $sql = "SELECT count(*) 
+                    AS `total` 
+                    FROM `patients`
                     WHERE 
                         (`lastname` LIKE :ln OR `firstname` LIKE :fn OR `mail` LIKE :ml) ;";
 
@@ -270,6 +314,40 @@ class Patient {
             $sth->bindValue(':ln', '%'.$search.'%', PDO::PARAM_STR);
             $sth->bindValue(':fn', '%'.$search.'%', PDO::PARAM_STR);
             $sth->bindValue(':ml', '%'.$search.'%', PDO::PARAM_STR);
+
+            // traitement et envoi d ela réponse
+            $sth->execute();
+
+            return $sth->fetch();
+
+        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
+            
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function get_patient_search($search, $offset = 0, $limit = 10) {
+
+        try{  //On essaie de se connecter   
+            
+            $pdo = Database::connect();
+
+            $sql = "SELECT * FROM 
+                        `patients`
+                    WHERE 
+                        (`lastname` LIKE :ln OR `firstname` LIKE :fn OR `mail` LIKE :ml) 
+                    LIMIT :sql_offset, :sql_limit;";
+
+            // préparation de la requête
+            $sth = $pdo->prepare($sql);
+
+            // association des marqueurs nominatif via méthode bindvalue
+            $sth->bindValue(':ln', '%'.$search.'%', PDO::PARAM_STR);
+            $sth->bindValue(':fn', '%'.$search.'%', PDO::PARAM_STR);
+            $sth->bindValue(':ml', '%'.$search.'%', PDO::PARAM_STR);
+            $sth->bindValue(':sql_offset', $offset, PDO::PARAM_INT);
+            $sth->bindValue(':sql_limit', $limit, PDO::PARAM_INT);
 
             // traitement et envoi d ela réponse
             $sth->execute();

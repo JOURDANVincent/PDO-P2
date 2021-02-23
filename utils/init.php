@@ -17,7 +17,8 @@
         'Ajouter rendez-vous',
         'Liste des rendez-vous',
         'Informations du rendez-vous',
-        'Mise à jour du rendez-vous'
+        'Mise à jour du rendez-vous',
+        'Ajouter patient et rendez-vous'
 
     ];
 

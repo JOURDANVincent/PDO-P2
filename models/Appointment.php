@@ -20,6 +20,10 @@ class Appointment {
         $this->_pdo = Database::connect();
     }
     
+    public function set_id($id) {
+
+        $this->_idPatients = $id;
+    }
 
     public function add_new_appointment() {
 
