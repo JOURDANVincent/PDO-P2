@@ -71,7 +71,7 @@
                     </div>
                     
                     <input 
-                        class="form-control <?= !empty($bdd_alert) ? 'bgError' : '' ;?> mb-2" 
+                        class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ;?> mb-2" 
                         type="email" name="mail" 
                         placeholder="email" 
                         value="<?= $_POST['mail'] ?? '' ;?>"
@@ -81,7 +81,7 @@
                     <div class="txt1 mb-2 mt-0 pl-3"><?= $form_error['mail'] ?? '' ;?></div>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-6 pl-0">
                     <label class="txt1">Sélection date et heure du rendez-vous</label>
                     <input 
                         class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ;?> mb-2" 

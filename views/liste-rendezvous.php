@@ -58,9 +58,13 @@
         </table>
 
         <div class="text-center mb-3 txt1">
-            <a href="index.php?ctrl=6&limit=10&offset=<?= ($sql_offset - 10) ?>"><span class="mx-2">précédent</span></a>
-            <a href="index.php?ctrl=6&limit=10&offset=<?= ($sql_offset + 10) ?>"><span class="mx-2">suivant</span></a>
-            <span class="mx-2"><?= $total_appointments.' rendez-vous' ?></span>
+            <?php if (($sql_offset - 10) >= 0) : ?>
+                <a href="index.php?ctrl=6&limit=10&offset=<?= ($sql_offset - 10) ?>"><span class="mx-2">précédent</span></a>
+            <?php endif ?>
+            <?php if (($sql_offset + 10) < $total_appointments) : ?>
+                <a href="index.php?ctrl=6&limit=10&offset=<?= ($sql_offset + 10) ?>"><span class="mx-2">suivant</span></a>
+            <?php endif ?>
+                <span class="mx-2"><?= $total_appointments.' rendez-vous' ?></span>
         </div>
 
     </div>

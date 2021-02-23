@@ -10,6 +10,7 @@ class Appointment {
     private $_dateHour;
     private $_idPatients;
     private $_pdo;
+    //static $last_insert;
     
 
     public function __construct($dateHour, $idPatients, $id=0) {
@@ -23,6 +24,8 @@ class Appointment {
     public function set_id($id) {
 
         $this->_idPatients = $id;
+
+        return true;
     }
 
     public function add_new_appointment() {
@@ -43,8 +46,14 @@ class Appointment {
             $sth->bindValue(':dateHour', $dateHour, PDO::PARAM_STR);
             $sth->bindValue(':idPatients', $this->_idPatients, PDO::PARAM_INT);
 
-            // envoi et retourne de la requête préparée
-            return $sth->execute();
+            // envoi la requête préparée
+            $result = $sth->execute();
+
+            // on récupère le dernier id
+            //self::$last_insert = $this->_pdo->lastInsertId();
+
+            // retourne le résultat
+            return $result;
 
         } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
             

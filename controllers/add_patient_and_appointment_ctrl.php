@@ -47,26 +47,30 @@
             $add_patient_data = Patient::add_patient_and_appointment($new_patient, $new_appointment);
 
             // on envoi en BDD
-            if ($add_patient_data !== false) {
+            if ($add_patient_data === true || !is_string($add_patient_data)) {
 
                 // affichage profil et message success !
-                $last_id = Patient::get_last_id();
-                header('location: index.php?ctrl=3&id='.$last_id->id.'&lastctrl=9&alert=1');
+                header('location: index.php?ctrl=3&id='.Patient::$last_insert.'&lastctrl=9&alert=1');
                 
             } else {
 
-                echo 'error';die;
-                if($new_patient == false) {
+                $alert_type = 'danger';
+
+                if($add_patient_data == 'error_mail') {
 
                     // bdd alert message
-                    $alert_type = 'danger';
                     $alert_msg = 'L\'adresse email '.$mail.' est déjà enregistré en base de données..';
+                
+                } else if($add_patient_data == 'error_datetime'){
+
+                    // affichage bdd alert error message 
+                    $alert_msg ='Un rendez-vous le '.$date.' à '.$hour.' est déjà enregistré en base de données..';
                 
                 } else {
 
                     // affichage bdd alert error message 
-                    $alert_type = 'danger';
-                    $alert_msg ='Un rendez-vous le '.$date.' à '.$hour.' est déjà enregistré en base de données..';
+                    $alert_msg ='Erreur inconnue..';
+                
                 }
                 
             }

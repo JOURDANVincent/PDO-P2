@@ -49,11 +49,13 @@
 
         // traitement input datetime
         $dateHour = trim(filter_input(INPUT_POST, 'dateHour', FILTER_SANITIZE_STRING));
+
         if (!empty($dateHour)) {
 
             if (!preg_match(R_DATETIME, $dateHour)) {
                 $form_error['dateHour'] = 'données invalides';
-            }
+            } 
+            
         } else {
             $form_error['dateHour'] = 'champ obligatoire';
         }   

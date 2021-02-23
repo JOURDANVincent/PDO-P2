@@ -61,8 +61,12 @@
         
         <?php if (empty($patient_search)) : ?>
         <div class="text-center mb-3 txt1">
-            <a href="index.php?ctrl=2&limit=10&offset=<?= ($sql_offset - 10) ?>&search=<?= $search ?>"><span class="mx-2">précédent</span></a>
-            <a href="index.php?ctrl=2&limit=10&offset=<?= ($sql_offset + 10) ?>&search=<?= $search ?>"><span class="mx-2">suivant</span></a>
+            <?php if (($sql_offset - 10) >= 0) : ?>
+                <a href="index.php?ctrl=2&limit=10&offset=<?= ($sql_offset - 10) ?>&search=<?= $search ?>"><span class="mx-2">précédent</span></a>
+            <?php endif ?>   
+            <?php if (($sql_offset + 10) < $total_patients) : ?>
+                <a href="index.php?ctrl=2&limit=10&offset=<?= ($sql_offset + 10) ?>&search=<?= $search ?>"><span class="mx-2">suivant</span></a>
+            <?php endif ?> 
             <span class="mx-2"><?= $total_patients.' patients' ?></span>
         </div>
         <?php endif ?>

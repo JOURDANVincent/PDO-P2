@@ -11,6 +11,7 @@ class Patient {
     private $_birthdate;
     private $_phone;
     private $_mail;
+    static $last_insert;
     static $total_patient;
     private $_pdo;
 
@@ -80,7 +81,7 @@ class Patient {
                 $result = $sth->execute();
 
                 // récupère dernier id
-                
+                self::$last_insert = $this->_pdo->lastInsertId();
 
                 // envoi et retourne la requête préparée
                 return $result;
@@ -107,19 +108,19 @@ class Patient {
             $pdo->beginTransaction();
 
             //ajout patient
-            $patient->add_new_patient();
-
-            // on récupère le dernier id
-            $last = Patient::get_last_id();
-            //$last_id = $pdo->lastInsertId();
+            if(!$patient->add_new_patient()) {
+                throw new PDOException('error_mail');
+            }
 
             // on réécrit l'id dans l'objet $appointment
-            $appointment->set_id($last->id);
-
-            //var_dump($appointment);die;
+            if(!$appointment->set_id(Patient::$last_insert)) {
+                throw new PDOException('error_id');
+            }
 
             // ajout rendez-vous
-            $appointment->add_new_appointment();
+            if(!$appointment->add_new_appointment()) {
+                throw new PDOException('error_datetime');
+            }
 
             // fin de transaction
             $pdo->commit();
@@ -129,8 +130,10 @@ class Patient {
             
         } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
             
+            //retour arrière transaction
             $pdo->rollBack();
-            return $e->getCode();
+
+            return $e->getMessage();
         }
     }
 
