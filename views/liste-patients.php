@@ -2,7 +2,7 @@
 <!-- Start Main Row -->
 <div id='mainContent' class="row h-100 justify-content-center align-items-center">
 
-    <img id="wall" class="img-fluid text-center" src="assets/img/addPatient.jpg" alt="Photo du chu d'amiens">
+    <img id="wall" class="img-fluid text-center" src="assets/img/crazyPatient.jpg" alt="Photo du chu d'amiens">
 
     <?php if(!empty($alert_msg)) : ?>
         <div class="col-12 alert alert-<?= $alert_type ?? 'danger' ?> alert-dismissible align-self-start">
@@ -11,7 +11,7 @@
         </div>
     <?php endif ?>
 
-    <div class="col-12 col-lg-8 justify-content-center bg8 bdc1 bl8 sha1">
+    <div class="col-12 col-lg-8 justify-content-center bg22 bdc1 bl8 sha1">
 
         <h4 class="txt1 text-center my-3">Liste des patients</h4>
 

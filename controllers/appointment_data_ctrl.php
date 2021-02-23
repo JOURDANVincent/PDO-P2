@@ -20,7 +20,7 @@
     }
 
     // on réécrit la date pour le value d'input date
-    $date = date('Y-m-d', strtotime($appointment_data->dateHour));
+    $date = date('d-m-Y', strtotime($appointment_data->dateHour));
     $hour = date('H:i', strtotime($appointment_data->dateHour));
 
 

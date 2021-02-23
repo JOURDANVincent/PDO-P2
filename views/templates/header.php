@@ -45,7 +45,7 @@
                     <form role="search" action="" method="GET" class="form input-group col-3">
                         <input id="search" type="search" name="search" class="form-control bdL5" placeholder="recherche patient..">
                         <input type="hidden" name="ctrl" value="2">
-                        <button type="submit" class="input-group-text  bg11 bdR5 txt1">
+                        <button id="searchBtn" type="submit" class="input-group-text txt1">
                             <img src="/assets/icon/loupe.svg" alt="icon search sur navbar">
                         </button>
                     </form>
