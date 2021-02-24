@@ -50,7 +50,8 @@
             if ($add_patient_data === true || !is_string($add_patient_data)) {
 
                 // affichage profil et message success !
-                header('location: index.php?ctrl=3&id='.Patient::$last_insert.'&lastctrl=9&alert=1');
+                $last_id = $new_patient->get_last_insert_id();
+                header('location: index.php?ctrl=3&id='.$last_id.'&lastctrl=9&alert=1');
                 
             } else {
 

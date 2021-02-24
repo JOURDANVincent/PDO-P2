@@ -1,5 +1,6 @@
 <?php
 
+// élément requis
 require_once dirname(__FILE__). '/../utils/Database.php';
 
 
@@ -11,7 +12,7 @@ class Patient {
     private $_birthdate;
     private $_phone;
     private $_mail;
-    static $last_insert;
+    private $_last_insert_id;
     static $total_patient;
     private $_pdo;
 
@@ -27,75 +28,39 @@ class Patient {
         $this->_pdo = Database::connect();
     }
     
-
-    private function check_new_entry() {
-        
-        try{  //On essaie de se connecter
-
-            // Préparation de la requête : contrôler l'existance d'une adresse mail avant enregistrement
-            $sql = "SELECT `mail`, COUNT(`mail`) as 'exist' FROM `patients` WHERE `mail` = :m;";
-            $sth = $this->_pdo->prepare($sql);
-
-            // association des paramètres
-            $sth->bindValue(':m', $this->_mail, PDO::PARAM_STR);   
-
-            // envoie de la requête
-            $sth->execute();
-
-            // traitement de la réponse
-            $check_entry = $sth->fetch();
-
-            //retourne le nombre d'entrée trouvée
-            return $check_entry->exist;
-
-        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
-            
-            return $e->getCode();
-        }
-
-    }
-
     public function add_new_patient() {
 
         try{  //On essaie de se connecter
 
-            if (!$this->check_new_entry()){ // controle doublon    
+            // insérer le nouveau patient
+            $sql = "INSERT INTO `patients` 
+                        (lastname, firstname, birthdate, phone, mail)
+                    VALUES 
+                        (:lastname, :firstname, :birthdate, :phone, :mail);";
+        
+            // préparation de la requête
+            $sth = $this->_pdo->prepare($sql);
 
-                // insérer le nouveau patient
-                $sql = "INSERT INTO `patients` 
-                            (lastname, firstname, birthdate, phone, mail)
-                        VALUES 
-                            (:lastname, :firstname, :birthdate, :phone, :mail);";
-            
-                // préparation de la requête
-                $sth = $this->_pdo->prepare($sql);
+            // association des marqueurs nominatif via méthode bindvalue
+            $sth->bindValue(':lastname', $this->_lastname, PDO::PARAM_STR);
+            $sth->bindValue(':firstname', $this->_firstname, PDO::PARAM_STR);
+            $sth->bindValue(':birthdate', $this->_birthdate, PDO::PARAM_STR);
+            $sth->bindValue(':phone', $this->_phone, PDO::PARAM_STR);
+            $sth->bindValue(':mail', $this->_mail, PDO::PARAM_STR);
 
-                // association des marqueurs nominatif via méthode bindvalue
-                $sth->bindValue(':lastname', $this->_lastname, PDO::PARAM_STR);
-                $sth->bindValue(':firstname', $this->_firstname, PDO::PARAM_STR);
-                $sth->bindValue(':birthdate', $this->_birthdate, PDO::PARAM_STR);
-                $sth->bindValue(':phone', $this->_phone, PDO::PARAM_STR);
-                $sth->bindValue(':mail', $this->_mail, PDO::PARAM_STR);
+            // éxecute requête
+            $result = $sth->execute();
 
-                // éxecute requête
-                $result = $sth->execute();
+            // récupère dernier id
+            $this->_last_insert_id = $this->_pdo->lastInsertId();
 
-                // récupère dernier id
-                self::$last_insert = $this->_pdo->lastInsertId();
-
-                // envoi et retourne la requête préparée
-                return $result;
-
-            } else {
-
-                return false;
-            }
+            // envoi et retourne la requête préparée
+            return $result;
             
         } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
 
             return false;
         }
-
     }
 
     public static function add_patient_and_appointment($patient, $appointment) {
@@ -113,7 +78,7 @@ class Patient {
             }
 
             // on réécrit l'id dans l'objet $appointment
-            if(!$appointment->set_id(Patient::$last_insert)) {
+            if(!$appointment->set_id($patient->_last_insert_id)) {
                 throw new PDOException('error_id');
             }
 
@@ -137,25 +102,9 @@ class Patient {
         }
     }
 
-    public static function get_last_id() {
+    public function get_last_insert_id() {
 
-        try{  //On essaie de se connecter
-
-            $pdo = Database::connect();
-
-            // Préparation de la requête : demande id dernier enregistrement
-            $sql = "SELECT MAX(`id`) as 'id' FROM `patients`;";
-
-            // exécute la requête
-            $sth = $pdo->query($sql);
-
-            //retourne le dernier id enregistré
-            return $sth->fetch();
-
-        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
-            
-            return $e->getCode();
-        }
+        return $this->_last_insert_id;
     }
 
     public static function get_patients_list($offset = 0, $limit = 10) {

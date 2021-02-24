@@ -10,7 +10,7 @@ class Appointment {
     private $_dateHour;
     private $_idPatients;
     private $_pdo;
-    //static $last_insert;
+    private $_last_insert_id;
     
 
     public function __construct($dateHour, $idPatients, $id=0) {
@@ -51,6 +51,7 @@ class Appointment {
 
             // on récupère le dernier id
             //self::$last_insert = $this->_pdo->lastInsertId();
+            $this->_last_insert_id = $this->_pdo->lastInsertId();
 
             // retourne le résultat
             return $result;
@@ -61,25 +62,9 @@ class Appointment {
         }
     }
 
-    public static function get_last_id() {
+    public function get_last_insert_id() {
 
-        try{  //On essaie de se connecter
-
-            $pdo = Database::connect();
-
-            // Préparation de la requête : demande id dernier enregistrement
-            $sql = "SELECT MAX(`id`) as 'id' FROM `appointments`;";
-
-            // exécute la requête
-            $sth = $pdo->query($sql);
-
-            //retourne le dernier id enregistré
-            return $sth->fetch();
-
-        } catch(PDOException $e){  // sinon on capture les exceptions si une exception est lancée et on affiche les informations relatives à celle-ci*/
-            
-            return $e->getCode();
-        }
+        return $this->_last_insert_id;
     }
 
     public static function get_appointments_list($offset = 0, $limit = 10) {

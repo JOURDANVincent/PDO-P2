@@ -1,7 +1,7 @@
 <!-- Start Main Row -->
 <div id='' class="row h-100 justify-content-center align-items-center">
 
-    <img id="wall" class="img-fluid text-center" src="assets/img/UnAqLO.jpg" alt="Photo du chu d'amiens">
+    <img id="wall" class="img-fluid text-center" src="assets/img/wp13247.jpg" alt="Photo du chu d'amiens">
 
     <?php if(!empty($alert_msg)) : ?>
         <div class="col-12 alert alert-<?= $alert_type ?? 'danger' ?> alert-dismissible align-self-start">
@@ -11,10 +11,10 @@
     <?php endif ?>
 
     <div class="col-4 justify-content-center">
-        <div class="card pt-4 bl8 bdc1 sha1 bg8" >
+        <div class="card pt-4 bl8 bdc1 sha1 bg22 txtW" >
 
             <div class="text-center">
-                <img class="card-img-top img-fluid" style="max-width:150px;" src="assets/icon/medical-records.svg" alt="logo raport">
+                <!-- <img class="card-img-top img-fluid" style="max-width:150px;" src="assets/icon/medical-records.svg" alt="logo raport"> -->
             </div>
 
             <div class="card-body row mt-3">
@@ -32,7 +32,7 @@
                     <?php if (empty($patient_appointment)) : ?>
                         <div>Aucun rendez-vous..</div>
                     <?php else : foreach($patient_appointment as $appointment) : ?>
-                        <div><?= 'le '.date('d-m-Y', strtotime($appointment->dateHour)).' à '. date('H:i', strtotime($appointment->dateHour)) ?></div>
+                        <div><?= date('d-m-Y', strtotime($appointment->dateHour)) ?><span class="txt1"> à </span><?= date('H:i', strtotime($appointment->dateHour)) ?></div>
                     <?php endforeach; endif ?>
                 </div>
 

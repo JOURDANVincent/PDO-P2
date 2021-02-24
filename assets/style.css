@@ -13,6 +13,10 @@ html, body {
     color: red !important;
 }
 
+.txtW {
+    color: white !important;
+}
+
 .bdc1 {
     border: 1px solid red !important;
     border-radius: 5px;
@@ -231,8 +235,8 @@ input[type="search"]:focus {
     color: black !important;
     border: 0;
 }
-input[type="search"]::placeholder {
-    color: #808080 !important;
+::placeholder {
+    color: #999 !important;
 }
 
 #searchBtn {

@@ -19,7 +19,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txt1 pt-3 text-center">Rendez-vous</legend>
+                <legend class="txtW pt-3 text-center">Rendez-vous</legend>
 
                 <div class="py-2 px-3 bg8 bdc1 bl8">
                     <label class="txt1 text-center">Ancien rendez-vous</label>

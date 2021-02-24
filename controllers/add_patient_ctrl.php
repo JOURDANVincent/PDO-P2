@@ -23,8 +23,8 @@
             if ($new_patient->add_new_patient()) {
 
                 // affichage profil et message success !
-                $last_id = Patient::get_last_id();
-                header('location: index.php?ctrl=3&id='.$last_id->id.'&lastctrl=1&alert=1');
+                $last_id = $new_patient->get_last_insert_id();
+                header('location: index.php?ctrl=3&id='.$last_id.'&lastctrl=1&alert=1');
                 
             } else {
 

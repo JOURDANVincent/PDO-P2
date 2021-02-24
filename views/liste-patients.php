@@ -13,7 +13,7 @@
 
     <div class="col-12 col-lg-8 justify-content-center bg22 bdc1 bl8 sha1">
 
-        <h4 class="txt1 text-center my-3">Liste des patients</h4>
+        <h4 class="txtW text-center my-3">Liste des patients</h4>
 
         <table class="table table-hover">
 
@@ -49,7 +49,7 @@
                         <td><?= $patient->birthdate ?></td>
                         <td><?= $patient->phone ?></td>
                         <td><?= $patient->mail ?></td>
-                        <td onclick="location.href='index.php?ctrl=2&del_idP=<?= $patient->id ?>'">
+                        <td data-id="<?= $patient->id ?>" class="delPatientBtn">
                             <img style="max-width:20px;" src="assets/icon/delete.svg" alt="icon supprimer">
                         </td>
                     </tr>

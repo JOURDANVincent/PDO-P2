@@ -13,7 +13,7 @@
 
     <div class="col-12 col-lg-7 justify-content-center bg22 bdc1 bl8 sha1 mb-5">
 
-        <h4 class="txt1 text-center my-3">Liste des rendez-vous</h4>
+        <h4 class="txtW text-center my-3">Liste des rendez-vous</h4>
 
         <table class="table table-hover text-center">
 
@@ -47,7 +47,8 @@
                         <td><?= $appointment->lastname ?></td>
                         <td><?= $appointment->firstname ?></td>
                         <td><?= $appointment->mail ?></td>
-                        <td onclick="location.href='index.php?ctrl=6&del_idA=<?= $appointment->idAppointments ?>'">
+                        <td data-id="<?= $appointment->idAppointments ?>" class="delAppointmentBtn">
+                        <!-- <td onclick="location.href='index.php?ctrl=6&del_idA=<?= $appointment->idAppointments ?>'"> -->
                             <img src="assets/icon/delete.svg" style="max-height:20px;" alt="icone supprimer">
                         </td>
                     </tr>

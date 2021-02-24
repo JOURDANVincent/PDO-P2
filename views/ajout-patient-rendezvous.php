@@ -18,7 +18,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txt1 py-3 text-center">Nouveau patient</legend>
+                <legend class="txt1 py-3 text-center txtW">Nouveau patient</legend>
 
                 <div class="form-group mb-3">
                     <label class="txt1">Informations du patient</label>

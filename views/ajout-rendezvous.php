@@ -18,7 +18,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txt1 py-3 text-center">Nouveau rendez-vous</legend>
+                <legend class="txtW py-3 text-center">Nouveau rendez-vous</legend>
 
                 <label class="txt1 mb-3">Sélectionner du patient</label>
                 <div id="patientSelect" class="form-check mb-4 bg8 bdc1 pl-4 py-3">

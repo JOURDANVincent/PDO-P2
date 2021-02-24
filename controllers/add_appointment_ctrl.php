@@ -14,7 +14,6 @@
     $total_patients = Patient::get_total_patients();
 
     if (!$total_patients) {
-
         // si erreur on renvoi sur liste des appointments
         header('location: index.php?alert=4');
     }
@@ -24,7 +23,6 @@
     $patients_list = Patient::get_patients_list(0, $total_patients);
 
     if (!$patients_list) {
-
         // si erreur on renvoi sur liste des appointments
         header('location: index.php?alert=4');
     }
@@ -59,10 +57,9 @@
             // on envoi en BDD
             if ($new_appointment->add_new_appointment()) {
 
-                $last_id = Appointment::get_last_id();
-                
                 // affichage rendez-vous et message success !!!
-                header('location: index.php?ctrl=6&alert=7&id='.$last_id->id.'');
+                $last_id = $new_appointment->get_last_insert_id();
+                header('location: index.php?ctrl=6&alert=7&id='.$last_id.'');
                 
             } else {
 

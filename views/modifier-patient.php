@@ -19,7 +19,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txt1 py-3 text-center">Modifier patient</legend>
+                <legend class="txtW py-3 text-center">Modifier patient</legend>
 
                 <input 
                     class="form-control <?= (!empty($form_error['lastname'])) ? 'bgError' : '' ;?> mb-2" 
