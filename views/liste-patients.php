@@ -1,6 +1,6 @@
 
 <!-- Start Main Row -->
-<div id='mainContent' class="row h-100 justify-content-center align-items-center">
+<div id='mainContent' class="row h-100 justify-content-center">
 
     <img id="wall" class="img-fluid text-center" src="assets/img/crazyPatient.jpg" alt="Photo du chu d'amiens">
 

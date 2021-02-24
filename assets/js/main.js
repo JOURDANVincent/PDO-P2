@@ -23,3 +23,19 @@ function delAppointmentConfirm() {
         window.location.href='index.php?ctrl=6&del_idA='+ id;
     }
 }
+
+
+// let delAppointmentBtn = document.querySelectorAll('.delAppointmentBtn');
+// delAppointmentBtn.forEach(element => {
+//     element.addEventListener('click', delAppointmentConfirm);
+// });
+
+// let delConfirm = document.querySelector('#delConfirm')
+ 
+// function delAppointmentConfirm() {
+
+//     let id = this.getAttribute('data-id');
+//     window.location.href='index.php?ctrl=6&del_idA='+ id;
+// }
+
+

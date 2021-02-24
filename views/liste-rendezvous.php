@@ -1,6 +1,6 @@
 
 <!-- Start Main Row -->
-<div id='mainContent' class="row h-100 justify-content-center align-items-center">
+<div id='mainContent' class="row h-100 justify-content-center">
 
     <img id="wall" class="img-fluid text-center" src="assets/img/patientRDV.jpg" alt="Photo du chu d'amiens">
 
@@ -47,10 +47,15 @@
                         <td><?= $appointment->lastname ?></td>
                         <td><?= $appointment->firstname ?></td>
                         <td><?= $appointment->mail ?></td>
+                        
+                        <!-- <td> -->
+                            <!-- <button data-id="<?= $appointment->idAppointments ?>" class="delAppointmentBtn" type="button" data-toggle="modal" data-target="#delAppointmentModal"> -->
                         <td data-id="<?= $appointment->idAppointments ?>" class="delAppointmentBtn">
                         <!-- <td onclick="location.href='index.php?ctrl=6&del_idA=<?= $appointment->idAppointments ?>'"> -->
                             <img src="assets/icon/delete.svg" style="max-height:20px;" alt="icone supprimer">
+                            <!-- </button> -->
                         </td>
+                        
                     </tr>
 
                 <?php $a++; endforeach ?>
@@ -70,7 +75,35 @@
 
     </div>
 
+
+    <!-- MODAL CONFIRM DELETE -->
+
+    <!-- Modal -->
+    <div class="modal fade bg22 bl8" id="delAppointmentModal" tabindex="-1" aria-labelledby="delAppointmentModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg22 bl8 bdc1 sha1">
+        <div class="modal-header">
+            <h5 class="modal-title txtW" id="delAppointmentModal">Suppression de rendez-vous</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body txtW">
+            Confirmez-vous la suppression rendez-vous ?!
+        </div>
+        <div class="modal-footer">
+            <button id="delConfirm" type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button class="btn bg1">Confirmer</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- MODAL CONFIRM DELETE -->
+
 </div>
+
+
 
 
 
