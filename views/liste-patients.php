@@ -1,6 +1,6 @@
 
 <!-- Start Main Row -->
-<div id='mainContent' class="row h-100 justify-content-center">
+<div id='mainContent' class="row h-100 justify-content-center align-items-center">
 
     <img id="wall" class="img-fluid text-center" src="assets/img/crazyPatient.jpg" alt="Photo du chu d'amiens">
 
@@ -11,15 +11,15 @@
         </div>
     <?php endif ?>
 
-    <div class="col-12 col-lg-8 justify-content-center bg22 bdc1 bl8 sha1">
+    <div class="col-12 col-lg-8 justify-content-center bg22 bdc1 bl8 sha1 py-3">
 
-        <h4 class="txtW text-center my-3">Liste des patients</h4>
+        <h1 class="txtW text-center my-3">Liste des patients</h1>
 
         <table class="table table-hover">
 
             <thead>
-                <tr class="txt1">
-                <th scope="col"></th>
+                <tr class="">
+                    <th scope="col"></th>
                     <th scope="col text-center">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prénom</th>

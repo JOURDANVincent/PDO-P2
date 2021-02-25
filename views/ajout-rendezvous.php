@@ -10,7 +10,7 @@
         </div>
     <?php endif ?>
 
-    <div id="mainContent" class="form-group col-4 bdc1 bg22 bl8 sha1 bgForm ">
+    <div id="mainContent" class="form-group col-4 bdc1 bg22 bl8 sha1 bgForm py-3">
 
         <!------------------------------------------ nouveau patient ------------------------------------------------>
 
@@ -18,7 +18,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txtW py-3 text-center">Nouveau rendez-vous</legend>
+                <h1 class="txtW py-3 text-center">Nouveau rendez-vous</h1>
 
                 <label class="txt1 mb-3">Sélectionner du patient</label>
                 <div id="patientSelect" class="form-check mb-4 bg8 bdc1 pl-4 py-3">
@@ -44,7 +44,7 @@
                     
                 <label class="txt1">Sélection date et heure du rendez-vous</label>
                 <input 
-                    class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ?> mb-2" 
+                    class="form-control <?= !empty($alert_msg) ? 'bgError' : '' ?> mb-2 col-12 col-lg-6" 
                     type="datetime-local" 
                     min="<?= $actual_date ?>" 
                     max=""

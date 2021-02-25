@@ -11,7 +11,7 @@
         </div>
     <?php endif ?>
 
-    <div id="mainContent" class="form-group col-12 col-lg-5 bdc1 bl8 bg22 sha1 bgForm px-4">
+    <div id="mainContent" class="form-group col-12 col-lg-5 bdc1 bl8 bg22 sha1 bgForm px-4 py-3">
 
         <!------------------------------------------ nouveau patient ------------------------------------------------>
 
@@ -19,7 +19,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="py-3 text-center txtW">Nouveau patient</legend>
+                <h1 class="py-3 text-center txtW">Nouveau patient</h1>
 
                 <input 
                     class="form-control <?= (!empty($form_error['lastname'])) ? 'bgError' : '' ;?> mb-2" 

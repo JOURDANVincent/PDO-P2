@@ -20,7 +20,6 @@ class Database {
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ]
             );
 
-            //var_dump(self::$pdo);
         }
         
         return self::$pdo;

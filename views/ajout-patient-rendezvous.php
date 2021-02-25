@@ -10,7 +10,7 @@
         </div>
     <?php endif ?>
 
-    <div id="mainContent" class="form-group col-12 col-lg-5 bdc1 bg22 bl8 sha1 bgForm px-4">
+    <div id="mainContent" class="form-group col-12 col-lg-5 bdc1 bg22 bl8 sha1 bgForm px-4 py-3">
 
         <!------------------------------------------ nouveau patient ------------------------------------------------>
 
@@ -18,7 +18,7 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txt1 py-3 text-center txtW">Nouveau patient</legend>
+                <h1 class="txt1 py-3 text-center txtW">Nouveau patient</h1>
 
                 <div class="form-group mb-3">
                     <label class="txt1">Informations du patient</label>

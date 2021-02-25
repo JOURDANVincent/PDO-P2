@@ -1,6 +1,6 @@
 
 <!-- Start Main Row -->
-<div id='mainContent' class="row h-100 justify-content-center">
+<div id='mainContent' class="row h-100 justify-content-center align-items-center">
 
     <img id="wall" class="img-fluid text-center" src="assets/img/patientRDV.jpg" alt="Photo du chu d'amiens">
 
@@ -11,9 +11,9 @@
         </div>
     <?php endif ?>
 
-    <div class="col-12 col-lg-7 justify-content-center bg22 bdc1 bl8 sha1 mb-5">
+    <div class="col-12 col-lg-7 justify-content-center bg22 bdc1 bl8 sha1 py-3">
 
-        <h4 class="txtW text-center my-3">Liste des rendez-vous</h4>
+        <h1 class="txtW text-center my-3">Liste des rendez-vous</h1>
 
         <table class="table table-hover text-center">
 
@@ -79,7 +79,7 @@
     <!-- MODAL CONFIRM DELETE -->
 
     <!-- Modal -->
-    <div class="modal fade bg22 bl8" id="delAppointmentModal" tabindex="-1" aria-labelledby="delAppointmentModal" aria-hidden="true">
+    <!-- <div class="modal fade bg22 bl8" id="delAppointmentModal" tabindex="-1" aria-labelledby="delAppointmentModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content bg22 bl8 bdc1 sha1">
         <div class="modal-header">
@@ -97,7 +97,7 @@
         </div>
         </div>
     </div>
-    </div>
+    </div> -->
 
     <!-- MODAL CONFIRM DELETE -->
 

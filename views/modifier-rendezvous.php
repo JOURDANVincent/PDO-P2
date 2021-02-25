@@ -1,7 +1,7 @@
 <!-- Start Main Row -->
 <div class="row h-100 justify-content-center align-items-center">
 
-    <img id="wall" class="img-fluid text-center" src="assets/img/doctor.jpg" alt="Photo du chu d'amiens">
+    <img id="wall" class="img-fluid text-center" src="assets/img/patientRDV.jpg" alt="Photo du chu d'amiens">
 
     <?php if(!empty($alert_msg)) : ?>
         <div class="col-12 alert alert-<?= $alert_type ?? 'danger' ?> alert-dismissible align-self-start">
@@ -11,7 +11,7 @@
     <?php endif ?>
 
 
-    <div id="mainContent" class="form-group col-4 bdc1 bl8 sha1 bgForm ">
+    <div id="mainContent" class="form-group col-4 bdc1 bg22 bl8 sha1 bgForm py-3">
 
         <!------------------------------------------ nouveau patient ------------------------------------------------>
 
@@ -19,10 +19,10 @@
 
             <fieldset class="mb-2">
 
-                <legend class="txtW pt-3 text-center">Rendez-vous</legend>
+                <h1 class="txtW pt-3 text-center">Rendez-vous</h1>
 
+                <label class="txt1 text-center mb-3">Ancien rendez-vous</label>
                 <div class="py-2 px-3 bg8 bdc1 bl8">
-                    <label class="txt1 text-center">Ancien rendez-vous</label>
                     <div>Patient : <?= $old_appointment->lastname.' '.$old_appointment->firstname ?></div>
                     <div>Rendez-vous : <?= $old_appointment->dateHour ?></div>
                 </div>
@@ -41,7 +41,7 @@
                     
                 </div>
                     
-                <label class="txt1">Modifier date et/ou heure du rendez-vous</label>
+                <label class="txt1 mb-0">Modifier date et/ou heure du rendez-vous</label>
                 <input 
                     class="form-control <?= (!empty($form_error['dateHour'])) ? 'bgError' : '' ;?> mb-2" 
                     type="datetime-local" 

@@ -1,7 +1,7 @@
 <!-- Start Main Row -->
 <div id='' class="row h-100 justify-content-center align-items-center">
 
-    <img id="wall" class="img-fluid text-center" src="assets/img/wp13247.jpg" alt="Photo du chu d'amiens">
+    <img id="wall" class="img-fluid text-center" src="assets/img/psyWall.jpg" alt="Photo du chu d'amiens">
 
     <?php if(!empty($alert_msg)) : ?>
         <div class="col-12 alert alert-<?= $alert_type ?? 'danger' ?> alert-dismissible align-self-start">
@@ -13,13 +13,15 @@
     <div class="col-4 justify-content-center">
         <div class="card pt-4 bl8 bdc1 sha1 bg22 txtW" >
 
+            <h1 class="text-center">Profil patient</h1>
+
             <div class="text-center">
                 <!-- <img class="card-img-top img-fluid" style="max-width:150px;" src="assets/icon/medical-records.svg" alt="logo raport"> -->
             </div>
 
             <div class="card-body row mt-3">
                 <div class="col-6">
-                    <h5 class="card-title">Profil patient</h5>
+                    <h5 class="card-title">Informations</h5>
                     <div>nom <span class="txt1"><?= $patient_profil->lastname?></span></div>
                     <div>prenom <span class="txt1"><?= $patient_profil->firstname?></span></div>
                     <div>date de naissance <span class="txt1"><?= $patient_profil->birthdate?></span></div>
