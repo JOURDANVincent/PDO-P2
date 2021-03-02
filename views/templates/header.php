@@ -43,7 +43,7 @@
 
                     <?php if (!empty($ctrl) && $ctrl === 2) : ?>
                     <form role="search" action="" method="GET" class="form input-group col-3">
-                        <input id="search" type="search" name="search" class="form-control bdL5" placeholder="recherche patient..">
+                        <input id="search" type="search" name="search" class="form-control bdL5" placeholder="recherche patient.." value="<?= $search ?? '' ?>">
                         <input type="hidden" name="ctrl" value="2">
                         <button id="searchBtn" type="submit" class="input-group-text txt1">
                             <img src="/assets/icon/loupe.svg" alt="icon search sur navbar">
